@@ -1,0 +1,40 @@
+<div class="row cart-and-ipay">
+  <div class="col-sm-10">
+    <input type="hidden" class="check-stock-url" value="${pdict.checkStockUrl}">
+    <button class="check-stock btn btn-primary" data-toggle="modal" data-target="#chooseBonusProductModal"
+      data-pid="${product.id}">
+      ${Resource.msg('button.stock.label', 'product', null)}
+    </button>
+    <div class="col-sm-2">
+      <label>${Resource.msg('label.productStock', 'product', null)}</label>
+      <label class="stock-count" value="${pdict.productStockCount}"></label>
+    </div>
+    <isinclude template="product/components/addToCartButtonExtension" />
+  </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.js"></script>
+<script>
+  $(document).on('click', 'button.check-stock', function () {
+            var checkStockUrl;
+        // var pid = $('.product-id').text();
+       var pid= $(document).find('.product-id').text()
+        console.log(pid)
+            checkStockUrl = getCheckStockUrl();
+                    $.ajax({
+                    url: checkStockUrl,
+                    method: 'POST',
+                    data: pid,
+                    success: function (data) {
+                       $('.stock-count').text(data.productStock)
+                    },
+                    error: function () {
+                      $('.stock-count').text('Product is not in stock.')
+                    }
+                });
+        });
+
+    function getCheckStockUrl() {
+    return $('.check-stock-url').val();
+}
+</script>

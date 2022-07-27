@@ -1,0 +1,120 @@
+{
+    "step-types":
+    {
+      "script-module-step":
+      [
+        {
+          "@type-id":"custom.GetImpexFolder",
+          "@supports-parallel-execution":"true",
+          "@supports-site-context":"true",
+          "@supports-organization-context":"false",
+          "description":"Gets Impex folder",
+          "module":"app_storefront_base_suleyman/cartridge/scripts/jobs/getCatalogsAsXML.js",
+          "function":"sftpUpload",
+          "transactional":"true",
+          "timeout-in-seconds":"90",
+          "parameters": {
+            "parameters": [
+              {
+                "@name": "SourcePathName",
+                "@type": "string",
+                "@required": "true",
+                "@trim": "true",
+                "description": "Uploaded folder name can be defined with this parameter",
+                "default-value": "/Impex/src/catalog/"
+              },
+              {
+                "@name": "SFTPServiceID",
+                "@type": "string",
+                "@required": "true",
+                "description": "Administration>Operations>Services - SFTP Service ID",
+                "default-value": "app_storefront_base_suleyman.sftp.exportCatalog.get"
+              }
+            ]
+          },
+          "status-codes": 
+          {
+            "status": 
+            [
+              {
+                "@code": "ERROR",
+                "description": "Used when the step failed with an error."
+              },
+              {
+                "@code": "FINISHED",
+                "description": "Used when the step finished successfully."
+              },
+              {
+                "@code": "FINISHED_WITH_WARNINGS",
+                "description": "Used when the step finished with warnings."
+              }
+            ]
+          }
+        },
+        {
+          "@type-id":"custom.ListImpexFolderSrc",
+          "@supports-parallel-execution":"true",
+          "@supports-site-context":"false",
+          "@supports-organization-context":"true",
+          "description":"Get list of file in Impex/src/catalog folder",
+          "module":"app_storefront_base_suleyman/cartridge/scripts/jobs/getCatalogList.js",
+          "function":"getFileList",
+          "transactional":"true",
+          "timeout-in-seconds":"90",
+          "parameters": {
+            "parameters": [
+              {
+                "@name": "FileName",
+                "@type": "string",
+                "@required": "false",
+                "@trim": "true",
+                "description": "Uploaded folder name can be defined with this parameter",
+                "default-value": "exampleName"
+              },
+              {
+                "@name": "ExportPathName",
+                "@type": "string",
+                "@required": "false",
+                "@trim": "true",
+                "description": "Uploaded folder name can be defined with this parameter",
+                "default-value": "/Impex/src/catalog"
+              },
+              {
+                "@name": "SFTPServiceID",
+                "@type": "string",
+                "@required": "true",
+                "description": "Administration>Operations>Services - SFTP Service ID",
+                "default-value": "app_storefront_base_suleyman.sftp.exportCatalog.get"
+              },
+              {
+                "@name": "targetPath",
+                "@type": "string",
+                "@required": "false",
+                "@trim": "true",
+                "description": "Directory path the file should be stored into on the destination server.",
+                "default-value": "/Import/a"
+              }
+            ]
+          },
+          "status-codes": 
+          {
+            "status": 
+            [
+              {
+                "@code": "ERROR",
+                "description": "Used when the step failed with an error."
+              },
+              {
+                "@code": "FINISHED",
+                "description": "Used when the step finished successfully."
+              },
+              {
+                "@code": "FINISHED_WITH_WARNINGS",
+                "description": "Used when the step finished with warnings."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }

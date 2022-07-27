@@ -1,0 +1,57 @@
+<div class="row cart-and-ipay">
+  <div class="col-sm-12">
+    <br />
+    <h2 class="title d-none d-sm-block">${Resource.msg('label.reviews.label', 'product', null)}</h2>
+    <!-- Bootstrap Review Form -->
+    <form action="${pdict.reviewUrl}" class="login" method="POST">
+      <div class="form-group col-2">
+        <input type="text" class="form-control" name="rating" value="5" />
+        <input type="hidden" name="productId" value="${pdict.product.id}" />
+      </div>
+      <div class="form-group col-12">
+        <textarea class="form-control" name="review" placeholder="Enter your review message"></textarea>
+        <small id="messagePrivacy" class="form-text text-muted">
+          ${Resource.msg('label.message.privacy', 'product', null)}
+        </small>
+      </div>
+      <div class="form-group col-12 d-flex justify-content-left">
+        <button class="check-stock btn btn-primary" data-toggle="modal" data-target="#chooseBonusProductModal"
+          data-pid="${product.id}">
+          ${Resource.msg('button.review.submit', 'product', null)}
+        </button>
+      </div>
+    </form>
+    <!-- /Bootstrap Review Form-->
+    <br />
+    <div class="col-sm-12 table-responsive">
+      <isloop items="${pdict.productReviews}" var="productReviews">
+        <table class="table">
+          <tr class="col-12">
+            <td class="col-2">
+              <!--${productReviews.custom.customerRating} -->
+              <isloop items="${[1, 2, 3, 4, 5]}" var="star">
+                <i class="fa
+        <isif condition=" ${productReviews.custom.customerRating >= star}">
+                  fa-star
+                  <iselseif
+                    condition="${(pdict.ratings % 1 > 0) && (Math.ceil(productReviews.custom.customerRating) >= star)}">
+                    fa-star-half-o
+                    <iselse>
+                      fa-star-o
+                      </isif>
+                      " aria-hidden="true">
+                </i>
+              </isloop>
+            </td>
+            <td class="col-10">
+              <label for="customerComment"><u>${Resource.msg('label.customer.review', 'product', null)}</u></label>
+              <br />
+              ${productReviews.custom.customerComment}
+              <br />
+            </td>
+          </tr>
+        </table>
+      </isloop>
+    </div>
+  </div>
+</div>

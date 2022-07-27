@@ -1,0 +1,14 @@
+<div class="card">
+    <div class="card-header clearfix">
+        <h2 class="pull-left">${Resource.msg('label.loyaltyId','account',null)}</h2>
+        <isif condition="${!pdict.account.isExternallyAuthenticated}">
+            <a href="${URLUtils.url('Account-EditLoyaltyId')}" class="pull-right" aria-label="${Resource.msg('label.loyaltyId.edit','account',null)}">${Resource.msg('link.edit','account',null)}</a>
+        </isif>
+    </div>
+    <div class="card-body">
+        <dl>
+            <dt>${Resource.msg('label.loyaltyId','account',null)}</dt>
+            <dd>${pdict.account.profile.loyaltyId}</dd>
+        </dl>
+    </div>
+</div>

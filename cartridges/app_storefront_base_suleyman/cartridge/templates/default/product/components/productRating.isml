@@ -1,0 +1,12 @@
+<isloop items="${[1, 2, 3, 4, 5]}" var="star">
+    <i class="fa
+        <isif condition="${pdict.ratings >= star}">
+            fa-star
+        <iselseif condition="${(pdict.ratings % 1 > 0) && (Math.ceil(pdict.ratings) >= star)}">
+            fa-star-half-o
+        <iselse>
+            fa-star-o
+        </isif>
+        " aria-hidden="true">
+    </i>
+</isloop>

@@ -1,0 +1,8 @@
+<isdecorate template="common/layout/page">
+<div style="margin: 50px">
+  <isloop items="${pdict.faqArray}" var="faq" status="loopstatus">
+    <isprint value=" ${faq}" encoding="off" />
+    <hr />
+  </isloop>
+  </div>
+</isdecorate>

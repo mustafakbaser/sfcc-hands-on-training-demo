@@ -1,0 +1,14 @@
+<span class="summary-section-label customer-label">
+    ${Resource.msg('label.customer.data', 'confirmation', null)}
+</span>
+
+<!-- Task 9 -->
+<div class="summary-details customer pt-3">
+    <p><b>${Resource.msg('label.customer.name', 'checkout', null)}:</b> <span
+            class="customer-summary-name">${(pdict.customer.profile && pdict.customer.profile.firstName) ? pdict.customer.profile.firstName: pdict.order.firstName}</span></p>
+    <p><b>${Resource.msg('label.customer.email', 'checkout', null)}:</b> <span
+            class="customer-summary-email">${(pdict.customer.profile && pdict.customer.profile.email) ? pdict.customer.profile.email: pdict.order.orderEmail}</span></p>
+    <p><b>${Resource.msg('label.customer.nickname', 'checkout', null)}:</b> <span
+            class="customer-summary-nickname">${(pdict.customer.profile && pdict.customer.profile.nickname) ? pdict.customer.profile.nickname: pdict.basket
+                                              .customerNickname}</span></p> 
+</div>

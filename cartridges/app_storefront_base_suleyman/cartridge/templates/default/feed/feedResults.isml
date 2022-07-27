@@ -1,0 +1,17 @@
+<!-- Task 19 -->
+<div class="col-sm-12">
+    <h2 class="title d-none d-sm-block pt-3 pl-3">${Resource.msg('label.feed.title', 'product', null)}</h2>
+    <hr />
+    <div class="card" style="width: 18rem;">
+        <ul class="list-group list-group-flush">
+            <isloop items="${pdict.IMPEXPath}" var="item">
+                <li class="list-group-item">
+                    <a href="https://zzkl-015.sandbox.us01.dx.commercecloud.salesforce.com/on/demandware.servlet/webdav/Sites/Impex/src/feed/${item}"
+                        download>
+                        <isprint value="${item}" encoding="off" />
+                    </a>
+                </li>
+            </isloop>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,48 @@
+<isif condition="${pdict.reportingURLs && pdict.reportingURLs.length}">
+  <isinclude template="reporting/reportingUrls" />
+</isif>
+
+<div class="container search-results">
+  <div class="row">
+    <div class="tab-content col-12">
+      <div class="tab-pane container active" id="product-search-results" role="tabpanel" aria-labelledby="product-tab">
+        <isloop items="${pdict.svcResult}" var="svcResult">
+        <div class="justify-content-center align-items-center">
+          <div class="table-responsive ">
+            <table class="table table-bordered">
+              <thead>
+              <tr class="w-25">
+              </tr>
+                <tr class="w-25">
+              </tr>
+                <tr class="w-25">
+              </tr>
+                <tr class="w-25">
+              </tr>
+                <tr class="w-25">
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                  <td>${svcResult.id}</td>
+                <td>${svcResult.first_name}</td>
+                <td>${svcResult.last_name}</td>
+                <td>${svcResult.email}</td>
+                <td>
+                  <img src="${svcResult.avatar}" alt="${svcResult.first_name}" />
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+          </div>
+        </isloop>
+      </div>
+    </div>
+    <!--- Content Grid --->
+    <div class="tab-pane container" id="content-search-results-pane" role="tabpanel" aria-labelledby="articles-tab">
+      <div id="content-search-results" class="content-grid-header"></div>
+    </div>
+
+  </div>
+</div>

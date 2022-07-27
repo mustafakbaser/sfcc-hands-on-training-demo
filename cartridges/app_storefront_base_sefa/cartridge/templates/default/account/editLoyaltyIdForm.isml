@@ -1,0 +1,23 @@
+<form action="${URLUtils.url('Account-SaveLoyaltyId')}" class="oldLoyaltyId" method="POST" <isprint value="${pdict.profileForm.attributes}" encoding="off" />>
+
+    <div class="form-group
+        <label class="form-control-label" for="oldLoyaltyId">
+            <isprint value="${pdict.profileForm.LoyaltyIdForm.loyaltyId.label}" encoding="htmlcontent" />
+        </label>
+        <input type="text" class="form-control" id="oldLoyaltyId" value="${pdict.profileForm.LoyaltyIdForm.loyaltyId.htmlValue}" <isprint value="${pdict.profileForm.LoyaltyIdForm.attributes}" encoding="off" />/>
+        <div class="invalid-feedback"></div>
+    </div>
+
+    <input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}"/>
+
+    <div class="row">
+        <div class="col">
+            <a href="${URLUtils.url('Account-Show')}" class="btn btn-block btn-outline-primary">${Resource.msg('button.cancel','account',null)}</a>
+        </div>
+
+        <div class="col">
+            <button type="submit" name="save" class="btn btn-save btn-block btn-primary">${Resource.msg('button.save','account',null)}</button>
+        </div>
+    </div>
+
+</form>

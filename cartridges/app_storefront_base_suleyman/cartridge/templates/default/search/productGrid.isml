@@ -1,0 +1,20 @@
+<isinclude template="search/components/productTiles" />
+
+<div class="col-12 grid-footer"
+     data-sort-options="${JSON.stringify(pdict.productSearch.productSort)}"
+     data-page-size="${pdict.productSearch.pageSize}"
+     data-page-number="${pdict.productSearch.pageNumber}"
+>
+    <!--- More button --->
+    <isif condition="${pdict.productSearch.showMoreUrl !== ''}">
+        <div class="show-more">
+            <div class="text-center">
+                <button class="btn btn-outline-primary col-12 col-sm-4 more"
+                        data-url="${pdict.productSearch.showMoreUrl}"
+                >
+                    ${Resource.msg('button.more', 'search', null)}
+                </button>
+            </div>
+        </div>
+    </isif>
+</div>

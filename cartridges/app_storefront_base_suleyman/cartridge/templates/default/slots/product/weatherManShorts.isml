@@ -1,0 +1,25 @@
+<div class="primary-images col-lg-6 col-sm-12 offset-lg-3">
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <isloop items="${slotcontent.content}" var="slotcontent" status="loopStatus">
+                <div class='carousel-item <isif condition="${loopStatus.index == 0}">active</isif>'>
+                    <a href="${URLUtils.url('Product-Show', 'pid', slotcontent.ID)}">
+                        <img src="${slotcontent.getImage('large', 0).URL}" class="d-block img-fluid"
+                            alt="${slotcontent.getImage('large', 0).alt}" />
+                    </a>
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5> ${slotcontent.name}</h5>
+                    </div>
+                </div>
+            </isloop>
+             <a class="carousel-control-prev" href="#carouselExampleSlidesOnly" role="button" data-slide="prev">
+                <span class="fa icon-prev" aria-hidden="true"></span>
+                <span class="sr-only">${Resource.msg('button.previous', 'common', null)}</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleSlidesOnly" role="button" data-slide="next">
+                <span class="fa icon-next" aria-hidden="true"></span>
+                <span class="sr-only">${Resource.msg('button.next', 'common', null)}</span>
+            </a>
+        </div>
+    </div>
+</div>
